@@ -1,5 +1,14 @@
 require 'faker'
 
+50.times do
+  Advertisement.create!(
+    title: Faker::Lorem.sentence,
+    copy: Faker::Lorem.paragraph,
+    price: Faker::Number.digit
+    )
+end
+advertisements = Advertisement.all
+
 #Create Posts
 50.times do
   Post.create!(
@@ -30,4 +39,4 @@ Comment.create!(
 puts "Seed Finished"
 puts "#{Post.count} post created"
 puts "#{Comment.count} comments created"
-
+puts "#{Advertisement.count} advertisements created"
