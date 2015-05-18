@@ -1,23 +1,23 @@
-<h1>New Post</h1>
+<h1>New Question</h1>
 
 <div class="row">
   <div class="col-md-4">
-    <p>Guidelines for Posts</p>
+    <p>Guidelines for Questions</p>
     <ul>
-      <li>T-Rexs are not in charge here</li>
-      <li>Don't Make fun of the Herbivores</li>
+      <li>Hatchlings may read, Keep It Clean!</li>
+      <li>Roars DO NOT count as questions.</li>
       <li>Only use languages created after the Cretaceous Period</li>
     </ul>
   </div>
   <div class="col-md-8">
-    <%= form_for @post do |f| %>
+    <%= form_for @questions do |f| %>
       <div class="form-group">
         <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control', placeholder: "Enter Post Title" %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter Question Title" %>
       </div>
       <div class="form-group">
         <%= f.label :body %>
-        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Post Body" %>
+        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Question Body" %>
       </div>
       <div class="form-group">
         <%= f.submit "Save", class: 'btn btn-success' %>

@@ -1,9 +1,17 @@
 Bloccit::Application.routes.draw do
+  get 'question/index'
+
+  get 'question/show'
+
+  get 'question/new'
+
+  get 'question/edit'
+
   get 'advertisements/index'
 
   get 'advertisements/show'
 
-    resources :posts, :advertisements
+    resources :posts, :questions, :advertisements
 
     get 'welcome/contact'
 
