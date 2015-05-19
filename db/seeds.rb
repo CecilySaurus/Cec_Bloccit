@@ -26,6 +26,14 @@ posts = Post.all
     )
 end
 
+50.times do
+  Question.create!(
+    title: Faker::Lorem.sentence,
+    body: Faker::Lorem.paragraph,
+    )
+end
+questions = Question.all
+
 Post.create!(
     title: "This is me!",
     body: "This is my post that Cecily created"
@@ -40,3 +48,4 @@ puts "Seed Finished"
 puts "#{Post.count} post created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} advertisements created"
+puts "#{Question.count} questions created"
