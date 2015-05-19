@@ -20,6 +20,10 @@
         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Question Body" %>
       </div>
       <div class="form-group">
+        <%= f.label "Resolved?" %>
+        <%= f.check_box :resolved %> <br />
+      </div>
+      <div class="form-group">
         <%= f.submit "Save", class: 'btn btn-success' %>
       </div>
     <% end %>
