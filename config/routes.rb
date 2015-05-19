@@ -1,9 +1,10 @@
 Bloccit::Application.routes.draw do
+  devise_for :users
   get 'advertisements/index'
 
   get 'advertisements/show'
 
-    resources :posts, :advertisements
+    resources :posts, :advertisements, :questions
 
     get 'welcome/contact'
 
