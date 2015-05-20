@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  
+  scope :ordered_by_title, -> {order(:title, :asc)}
+  scope :ordered_by_reverse_created_at, -> {order(:created_at, :desc)}
+
   def index
       @posts = Post.all
   end
