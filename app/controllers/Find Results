@@ -1,0 +1,10 @@
+Searching 531 files for "configure_permeitted"
+
+/Users/macair/code/bloccit/app/controllers/application_controller.rb:
+    2  
+    3    protect_from_forgery with: :exception
+    4:     before_action :configure_permitted_parameters, if: :devise_controller?
+    5  
+    6    protected
+
+1 match in 1 file
