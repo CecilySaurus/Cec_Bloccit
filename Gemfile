@@ -59,5 +59,6 @@ group :development, :test do
   gem 'spring'
 
   gem  'figaro', '1.0'
+  gem 'pry'
 end
 
