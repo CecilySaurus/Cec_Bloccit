@@ -2,7 +2,11 @@ Bloccit::Application.routes.draw do
 
   devise_for :users
 
-  resources :posts, :questions, :advertisements
+  resources :questions, :advertisements
+
+  resources :topics do
+    resources :posts, except: [:index]
+  end
 
   get 'welcome/contact'
   

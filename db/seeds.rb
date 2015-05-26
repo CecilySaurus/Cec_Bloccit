@@ -12,6 +12,14 @@ require 'faker'
  end
  users = User.all
  
+#Create Topics
+15.times do
+  Topic.create!(
+    name:          Faker::Lorem.sentence,
+    description:   Faker::Lorem.paragraph  
+    )
+end
+topics = Topic.all
  # Note: by calling `User.new` instead of `create`,
  # we create an instance of User which isn't immediately saved to the database.
  
@@ -34,8 +42,9 @@ advertisements = Advertisement.all
 50.times do
   Post.create!(
     user:   users.sample,
-    title: Faker::Lorem.sentence,
-    body: Faker::Lorem.paragraph
+    topic:  topics.sample,
+    title:  Faker::Lorem.sentence,
+    body:   Faker::Lorem.paragraph
     )
 end
 posts = Post.all
@@ -67,12 +76,35 @@ Comment.create!(
     body: "This is a stupid post!"
   )
 
-user = User.first
-user.skip_reconfirmation!
-user.update_attributes!(
-    email: 'its.cecilyy@gmail.com',
-    password: 'cecilyc92'
+# Create Admin
+admin = User.new(
+  name:     'Admin User',
+  email:    'cecily@cruz.com',
+  password: 'cecilyc92',
+  role:     'admin'
+)
+admin.skip_confirmation!
+admin.save!
+
+# Create Moderator
+moderator = User.new(
+  name:     'Moderator User',
+  email:    'moderator@email.com',
+  password: 'cecilyc92',
+  role:     'moderator'
   )
+moderator.skip_confirmation!
+moderator.save!
+
+# Create Member
+member = User.new(
+  name:     'Borus',
+  email:    'borus@lilpoop.com', 
+  password: 'cecilyc92'
+  )
+member.skip_confirmation!
+member.save!
+
 
 puts "Seed Finished"
 puts "#{Post.count} post created"
