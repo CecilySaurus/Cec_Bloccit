@@ -2,7 +2,7 @@ Bloccit::Application.routes.draw do
 
   devise_for :users
 
-  resources :questions, :advertisements
+  resources :questions, :advertisements, :summaries
 
   resources :topics do
     resources :posts, except: [:index]
