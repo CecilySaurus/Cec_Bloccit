@@ -80,3 +80,4 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'bloccitsaur.herokuapp.com' }
 
   # http://bloccit.herokuapp.com
+end
