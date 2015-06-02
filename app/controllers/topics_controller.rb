@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = current_user.topics.build(pony_params)
+    @topic = Topic.new(pony_params)
     authorize @topic
     if @topic.save
       redirect_to @topic, notice: "Topic was saved successfully."
@@ -45,7 +45,7 @@ class TopicsController < ApplicationController
   private
 
   def pony_params
-    params.require(:topic).permit(:title, :body)
+    params.require(:topic).permit(:name, :description)
   end
 end
 
