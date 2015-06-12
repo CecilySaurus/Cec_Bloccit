@@ -34,7 +34,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     authorize @topic
-    if current_user.topics.build(pony_params)
+    if @topic.update_attributes(pony_params)
       redirect_to @topic
     else
       flash[:error] = "Error saving topic. Please try again."
