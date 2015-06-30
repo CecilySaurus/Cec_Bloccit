@@ -1,5 +1,5 @@
-require 'faker'
-
+ require 'faker'
+ 
  # Create Users
  5.times do
    user = User.new(
@@ -10,7 +10,7 @@ require 'faker'
    user.skip_confirmation!
    user.save!
  end
- users = User.all
+ users = User.all 
  
 #Create Topics
 200.times do
@@ -29,14 +29,15 @@ topics = Topic.all
  # The `save` method then saves this User to the database.
 
 
-50.times do
-  Advertisement.create!(
-    title: Faker::Lorem.sentence,
-    copy: Faker::Lorem.paragraph,
-    price: Faker::Number.digit
-    )
-end
-advertisements = Advertisement.all
+ # Create Topics
+ 100.times do
+   topic = Topic.create!(
+     name:         Faker::Lorem.sentence,
+     description:  Faker::Lorem.paragraph
+   )
+ end
+ topics = Topic.all
+
 
 #Create Posts
 1000.times do
@@ -47,34 +48,43 @@ advertisements = Advertisement.all
     body:   Faker::Lorem.paragraph
     )
 end
-posts = Post.all
 
-#Create Comments
-100.times do
-  Comment.create!(
-    # user: users.sample,   # we have not yet associated Users with Comments
-      post: posts.sample,
-      body: Faker::Lorem.paragraph
-    )
-end
 
-50.times do
-  Question.create!(
-    title: Faker::Lorem.sentence,
-    body: Faker::Lorem.paragraph,
-    )
-end
-questions = Question.all
+# Create Posts
+ 10000.times do
+   post = Post.create!(
+     user:   users.sample,
+     topic:  topics.sample,
+     title:  Faker::Lorem.sentence,
+     body:   Faker::Lorem.paragraph
+   )
+ end
+ posts = Post.all
 
-Post.create!(
-    title: "This is me!",
-    body: "This is my post that Cecily created"
-  )
 
-Comment.create!(
-    post: posts.sample,
-    body: "This is a stupid post!"
-  )
+ # Create Comments
+ 100.times do
+   Comment.create!(
+     post: posts.sample,
+     user: users.sample,
+     body: Faker::Lorem.paragraph
+   )
+ end
+
+ Post.create!(
+    user:   users.sample,
+    topic:  topics.sample,
+    title:  "Why Boris barks at birds!",
+    body:   "Psyche! No one knows."
+   )
+
+
+ Comment.create!(
+    post:  posts.sample,
+    user:  users.sample,
+    body:  "Tell me why?!!> I'll pay you!"
+   )
+ 
 
 # Create Admin
 admin = User.new(
