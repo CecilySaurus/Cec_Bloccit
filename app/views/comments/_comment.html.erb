@@ -1,8 +1,6 @@
 <p>
   <%= comment.body %>
-  <% if comment.user %>
-    <small>
-      <em><%= comment.user.name || comment.user.email && comment.user.avatar %></em>
-    </small>
-  <% end %>
+  <small>
+    <em><%= comment.post.user.name %></em>
+  </small>
 </p>

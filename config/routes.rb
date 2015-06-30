@@ -6,8 +6,9 @@ Bloccit::Application.routes.draw do
   resources :questions, :advertisements, :summaries
 
   resources :topics do
-    resources :posts, except: [:index]
-    resources :comments, only: [:index]
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create]
+    end
   end
 
   get 'welcome/contact'
