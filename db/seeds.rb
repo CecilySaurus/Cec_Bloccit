@@ -40,7 +40,7 @@ topics = Topic.all
 
 
 #Create Posts
-1000.times do
+100.times do
   Post.create!(
     user:   users.sample,
     topic:  topics.sample,
@@ -51,7 +51,7 @@ end
 
 
 # Create Posts
- 10000.times do
+ 100.times do
    post = Post.create!(
      user:   users.sample,
      topic:  topics.sample,
@@ -63,13 +63,13 @@ end
 
 
  # Create Comments
- 100.times do
-   Comment.create!(
-     post: posts.sample,
-     user: users.sample,
-     body: Faker::Lorem.paragraph
-   )
- end
+ # 100.times do
+ #   Comment.create!(
+ #     post: posts.sample,
+ #     user: users.sample,
+ #     body: Faker::Lorem.paragraph
+ #   )
+ # end
 
  Post.create!(
     user:   users.sample,
@@ -89,7 +89,7 @@ end
 # Create Admin
 admin = User.new(
   name:     'Admin User',
-  email:    'cecily@cruz.com',
+  email:    'cec@cruz.com',
   password: 'cecilyc92',
   role:     'admin'
 )
