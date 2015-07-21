@@ -63,13 +63,13 @@ end
 
 
  # Create Comments
- # 100.times do
- #   Comment.create!(
- #     post: posts.sample,
- #     user: users.sample,
- #     body: Faker::Lorem.paragraph
- #   )
- # end
+ 100.times do
+   Comment.create!(
+     post: posts.sample,
+     user: users.sample,
+     body: Faker::Lorem.paragraph
+   )
+ end
 
  Post.create!(
     user:   users.sample,
@@ -117,7 +117,8 @@ member.save!
 
 
 puts "Seed Finished"
-puts "#{Post.count} post created"
+puts "#{Topic.count} topics created"
+puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} advertisements created"
 puts "#{Question.count} questions created"
